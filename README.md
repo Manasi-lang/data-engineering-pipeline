@@ -2,6 +2,18 @@
 
 A comprehensive, production-ready data engineering pipeline that demonstrates best practices for extracting, transforming, and loading data using modern tools and technologies.
 
+## 🌐 **Live Dashboard**
+📊 **Interactive Analytics Dashboard**: [View Live Demo](https://manasi-lang.github.io/data-pipeline-dashboard/)
+- Real-time metrics and visualizations
+- Interactive charts and data insights
+- Mobile-responsive design
+- Production-ready deployment
+
+## 📋 **Quick Links**
+- 🔗 **GitHub Repository**: https://github.com/manasi-lang/data-engineering-pipeline
+- 🌐 **Live Dashboard**: https://manasi-lang.github.io/data-pipeline-dashboard/
+- 📊 **Dashboard Source**: https://github.com/manasi-lang/data-engineering-pipeline/blob/main/Cloud_Dashboard/index.html
+
 ## 📋 Project Overview
 
 This project implements a complete data engineering pipeline with the following capabilities:
@@ -81,6 +93,8 @@ data-engineering-pipeline/
 ├── data/                         # Data directories
 │   ├── raw/                      # Raw input data
 │   └── processed/                # Processed data
+├── Cloud_Dashboard/              # Interactive dashboard
+│   └── index.html                # Live demo dashboard
 ├── tests/                        # Test files
 ├── logs/                         # Log files
 ├── requirements.txt              # Python dependencies
@@ -101,7 +115,7 @@ data-engineering-pipeline/
 
 1. **Clone and Setup**
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/manasi-lang/data-engineering-pipeline.git
    cd "data engg project"
    python -m venv venv
    source venv/bin/activate  # On Windows: venv\Scripts\activate
@@ -379,3 +393,23 @@ For issues and questions:
 ---
 
 **Built with ❤️ for the data engineering community**
+
+## 🌐 **Live Dashboard Features**
+
+### 📊 **Real-time Metrics**
+- **10 Users** - Active user base
+- **10 Products** - Product catalog  
+- **$3,729.88 Revenue** - Total sales
+- **$248.66 Avg Order** - Per transaction
+
+### 📈 **Interactive Visualizations**
+- **Sales Timeline** - Daily sales trends
+- **Top Products** - Best performing items
+- **Transaction Table** - Recent sales data
+- **Pipeline Status** - Component health
+
+### 🎯 **Perfect For**
+- 💼 **Job Interviews** - Show live demo
+- 📊 **Portfolio Projects** - Interactive display
+- 🎓 **Learning Demonstrations** - Real-world application
+- 🏢 **Business Presentations** - Data insights
