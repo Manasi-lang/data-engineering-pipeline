@@ -1,0 +1,16 @@
+sale_id,user_id,product_id,quantity,unit_price,total_amount,sale_date,store_location,payment_method
+S001,1,P001,1,1299.99,1299.99,2024-01-01,New York,Credit Card
+S002,2,P002,2,29.99,59.98,2024-01-01,Los Angeles,PayPal
+S003,3,P003,1,299.99,299.99,2024-01-02,Chicago,Credit Card
+S004,4,P004,1,89.99,89.99,2024-01-02,Houston,Debit Card
+S005,5,P005,1,599.99,599.99,2024-01-03,Phoenix,Credit Card
+S006,6,P006,3,79.99,239.97,2024-01-03,Philadelphia,PayPal
+S007,7,P007,2,49.99,99.98,2024-01-04,San Antonio,Credit Card
+S008,8,P008,1,59.99,59.99,2024-01-04,San Diego,Debit Card
+S009,9,P009,4,24.99,99.96,2024-01-05,Dallas,Credit Card
+S010,10,P010,5,19.99,99.95,2024-01-05,San Jose,PayPal
+S011,1,P002,1,29.99,29.99,2024-01-06,New York,Credit Card
+S012,2,P004,2,89.99,179.98,2024-01-06,Los Angeles,Debit Card
+S013,3,P006,1,79.99,79.99,2024-01-07,Chicago,PayPal
+S014,4,P008,1,59.99,59.99,2024-01-07,Houston,Credit Card
+S015,5,P010,3,19.99,59.97,2024-01-08,Phoenix,Debit Card

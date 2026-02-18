@@ -1,0 +1,11 @@
+product_id,name,category,price,description,brand,created_date,updated_date
+P001,Laptop Pro,Electronics,1299.99,High-performance laptop for professionals,TechBrand,2020-01-01,2024-01-01
+P002,Wireless Mouse,Electronics,29.99,Ergonomic wireless mouse,TechBrand,2020-02-15,2024-01-01
+P003,Office Chair,Furniture,299.99,Comfortable office chair with lumbar support,ComfortPlus,2020-03-10,2024-01-01
+P004,Coffee Maker,Appliances,89.99,Programmable coffee maker,BrewMaster,2020-04-05,2024-01-01
+P005,Standing Desk,Furniture,599.99,Adjustable height standing desk,WorkSpace,2020-05-20,2024-01-01
+P006,Bluetooth Speaker,Electronics,79.99,Portable bluetooth speaker,SoundWave,2020-06-12,2024-01-01
+P007,Desk Lamp,Lighting,49.99,LED desk lamp with adjustable brightness,BrightLight,2020-07-08,2024-01-01
+P008,Backpack,Accessories,59.99,Durable laptop backpack,TravelGear,2020-08-15,2024-01-01
+P009,Water Bottle,Accessories,24.99,Insulated water bottle,HydroPlus,2020-09-20,2024-01-01
+P010,Notebook Set,Stationery,19.99,Premium notebook set,WriteWell,2020-10-25,2024-01-01
