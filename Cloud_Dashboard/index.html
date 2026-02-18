@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 Data Engineering Pipeline Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+            min-height: 100vh; 
+            color: #333;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .header { 
+            background: rgba(255,255,255,0.95); 
+            padding: 30px; 
+            border-radius: 15px; 
+            text-align: center; 
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+        .header h1 { font-size: 2.5em; margin-bottom: 10px; background: linear-gradient(45deg, #667eea, #764ba2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .header p { font-size: 1.2em; color: #666; }
+        .metrics { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            gap: 20px; 
+            margin-bottom: 30px; 
+        }
+        .metric { 
+            background: rgba(255,255,255,0.95); 
+            padding: 25px; 
+            border-radius: 15px; 
+            text-align: center; 
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .metric:hover { transform: translateY(-5px); }
+        .metric h3 { font-size: 1em; margin-bottom: 10px; color: #666; }
+        .metric .number { font-size: 2.5em; font-weight: bold; color: #667eea; margin-bottom: 5px; }
+        .metric .label { font-size: 0.9em; color: #999; }
+        .charts { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); 
+            gap: 20px; 
+            margin-bottom: 30px; 
+        }
+        .chart { 
+            background: rgba(255,255,255,0.95); 
+            padding: 25px; 
+            border-radius: 15px; 
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        .chart h3 { margin-bottom: 20px; color: #333; }
+        .table { 
+            background: rgba(255,255,255,0.95); 
+            padding: 25px; 
+            border-radius: 15px; 
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        .table h3 { margin-bottom: 20px; color: #333; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #eee; }
+        th { background: #f8f9fa; font-weight: 600; color: #667eea; }
+        tr:nth-child(even) { background: #f2f2f2; }
+        tr:hover { background: #f8f9fa; }
+        .status { 
+            background: rgba(255,255,255,0.95); 
+            padding: 20px; 
+            border-radius: 15px; 
+            margin-bottom: 20px; 
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        .status-item { display: inline-block; margin: 10px; padding: 10px 20px; border-radius: 25px; font-weight: bold; }
+        .success { background: #4CAF50; color: white; }
+        .ready { background: #FF9800; color: white; }
+        .footer { 
+            text-align: center; 
+            padding: 20px; 
+            color: white; 
+            margin-top: 30px;
+        }
+        @media (max-width: 768px) {
+            .metrics { grid-template-columns: 1fr; }
+            .charts { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 Data Engineering Pipeline Dashboard</h1>
+            <p>Real-time analytics and monitoring • Production-ready ETL pipeline</p>
+        </div>
+        
+        <div class="metrics">
+            <div class="metric">
+                <h3>👥 Total Users</h3>
+                <div class="number">10</div>
+                <div class="label">Active users</div>
+            </div>
+            <div class="metric">
+                <h3>📦 Total Products</h3>
+                <div class="number">10</div>
+                <div class="label">Products catalog</div>
+            </div>
+            <div class="metric">
+                <h3>💰 Total Revenue</h3>
+                <div class="number">$3,729.88</div>
+                <div class="label">Total sales</div>
+            </div>
+            <div class="metric">
+                <h3>📊 Avg Order Value</h3>
+                <div class="number">$248.66</div>
+                <div class="label">Per transaction</div>
+            </div>
+        </div>
+        
+        <div class="status">
+            <h3>🔧 Pipeline Components</h3>
+            <span class="status-item success">✅ Data Extraction</span>
+            <span class="status-item success">✅ Data Transformation</span>
+            <span class="status-item success">✅ API Integration</span>
+            <span class="status-item ready">⏳ Database Loading</span>
+            <span class="status-item ready">⏳ Cloud Deployment</span>
+        </div>
+        
+        <div class="charts">
+            <div class="chart">
+                <h3>📈 Sales Over Time</h3>
+                <canvas id="salesChart" width="400" height="200"></canvas>
+            </div>
+            <div class="chart">
+                <h3>🏆 Top Products</h3>
+                <canvas id="productsChart" width="400" height="200"></canvas>
+            </div>
+        </div>
+        
+        <div class="table">
+            <h3>💰 Recent Transactions</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sale ID</th>
+                        <th>Product</th>
+                        <th>Amount</th>
+                        <th>Date</th>
+                        <th>Location</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>S001</td>
+                        <td>P001</td>
+                        <td>$1,299.99</td>
+                        <td>2024-01-01</td>
+                        <td>New York</td>
+                    </tr>
+                    <tr>
+                        <td>S002</td>
+                        <td>P002</td>
+                        <td>$59.98</td>
+                        <td>2024-01-01</td>
+                        <td>Los Angeles</td>
+                    </tr>
+                    <tr>
+                        <td>S003</td>
+                        <td>P003</td>
+                        <td>$299.99</td>
+                        <td>2024-01-02</td>
+                        <td>Chicago</td>
+                    </tr>
+                    <tr>
+                        <td>S004</td>
+                        <td>P004</td>
+                        <td>$89.99</td>
+                        <td>2024-01-02</td>
+                        <td>Houston</td>
+                    </tr>
+                    <tr>
+                        <td>S005</td>
+                        <td>P005</td>
+                        <td>$599.99</td>
+                        <td>2024-01-03</td>
+                        <td>Phoenix</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="footer">
+            <p>🚀 Production-Ready Data Engineering Pipeline</p>
+            <p>Last updated: 2026-02-18 12:08:00</p>
+            <p>Built with Python, Pandas, and deployed to cloud</p>
+            <p>🔗 GitHub: https://github.com/manasi-lang/data-engineering-pipeline</p>
+        </div>
+    </div>
+    
+    <script>
+        // Sales over time chart
+        const salesCtx = document.getElementById('salesChart').getContext('2d');
+        new Chart(salesCtx, {
+            type: 'line',
+            data: {
+                labels: ['2024-01-01', '2024-01-02', '2024-01-03', '2024-01-04', '2024-01-05'],
+                datasets: [{
+                    label: 'Sales ($)',
+                    data: [1359.97, 389.98, 899.98, 159.96, 199.92],
+                    borderColor: '#667eea',
+                    backgroundColor: 'rgba(102, 126, 234, 0.1)',
+                    borderWidth: 3,
+                    tension: 0.4,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                return '$' + value.toLocaleString();
+                            }
+                        }
+                    }
+                }
+            }
+        });
+        
+        // Top products chart
+        const productsCtx = document.getElementById('productsChart').getContext('2d');
+        new Chart(productsCtx, {
+            type: 'bar',
+            data: {
+                labels: ['P001', 'P005', 'P003', 'P002', 'P006'],
+                datasets: [{
+                    label: 'Sales ($)',
+                    data: [1299.99, 599.99, 299.99, 59.98, 239.97],
+                    backgroundColor: ['#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', '#FFEAA7'],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                return '$' + value.toLocaleString();
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
